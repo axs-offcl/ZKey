@@ -307,7 +307,6 @@ Distributed under the **GNU General Public License v3.0**. See [LICENSE](LICENSE
 
 ## Credits
 
-- Inspired by `keyboard.lua` by CaJlaT (moonloader/GTA SA overlay)
 - Built with [Qt 6](https://www.qt.io/) and C++20
 - Icons from [ForTheBadge](https://forthebadge.com)
 
