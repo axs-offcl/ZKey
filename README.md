@@ -276,13 +276,37 @@ ZKey.exe --list-plugins --json
 
 <br/>
 
+## Security & Privacy
+
+ZKey uses Windows input hooks (`SetWindowsHookEx`) to capture keyboard and mouse events for the overlay. This is the **same API** used by keyloggers, which is why antivirus software may flag it.
+
+**Why hooks are needed:**
+- To detect key presses and highlight them on the overlay in real-time
+- To detect mouse button clicks and scroll wheel events
+- No other Windows API provides this functionality for a third-party overlay
+
+**What ZKey does NOT do:**
+- Does **not** log or store keystrokes
+- Does **not** send data over the network (except plugin marketplace HTTPS requests)
+- Does **not** persist keystroke data to disk
+- Does **not** inject DLLs into other processes
+- Does **not** capture passwords or sensitive input selectively
+- Source code is fully auditable on GitHub
+
+**If your antivirus flags ZKey:**
+1. This is a **false positive** — ZKey is open source and safe
+2. Add an exception for the ZKey folder in your antivirus settings
+3. Submit the file to your antivirus vendor for whitelisting
+
+<br/>
+
 ## Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
 | Overlay not appearing | Check that `ZKey.json` exists. If corrupt, delete it and restart |
 | No key highlights | Run ZKey as Administrator (some games require admin for hooks) |
-| Antivirus warning | ZKey uses `SetWindowsHookEx` — add an exception if needed |
+| Antivirus warning | False positive — see [Security & Privacy](#security--privacy) above |
 | High CPU | Should be <2% at idle. Check for conflicting software |
 
 <br/>
