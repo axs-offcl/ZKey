@@ -305,13 +305,6 @@ Distributed under the **GNU General Public License v3.0**. See [LICENSE](LICENSE
 
 <br/>
 
-## Credits
-
-- Built with [Qt 6](https://www.qt.io/) and C++20
-- Icons from [ForTheBadge](https://forthebadge.com)
-
-<br/>
-
 <p align="center">
   <img src="https://forthebadge.com/api/badges/generate?primaryLabel=BUILT&secondaryLabel=WITH+LOVE&panels=3&primaryBGColor=%23EF4444&primaryTextColor=%23FFFFFF&secondaryBGColor=%23DC2626&secondaryTextColor=%23FFFFFF&tertiaryBGColor=%23B91C1C&tertiaryTextColor=%23FFFFFF&primaryIcon=github&primaryIconColor=%23FFFFFF&primaryIconSize=16" alt="Built with Love"/>
 </p>
