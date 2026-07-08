@@ -57,19 +57,22 @@ ZKey is a **real-time keyboard and mouse input overlay** designed for streamers,
 <td width="50%" valign="top">
 
 ### Keyboard Overlay
-- **5 keyboard layouts** — Whole Keyboard, No Numpad, Numbers, Compact, WASD
+- **5 keyboard layouts** — Whole Keyboard, No Numpad, Numbers, Compact, Ctrl Buttons
+- **Custom layouts** — design your own with the built-in Layout Editor
 - **Real-time highlighting** — pressed keys light up instantly
 - **Per-key customization** — colors, font size, bold, corner radius, gradient, glow
 - **Independent opacity** — separate sliders for keyboard and mouse
 - **Auto-hide** — hides when a game window is in focus
+- **KPS counter** — keys per second with Show/Reset toggles
 
 </td>
 <td width="50%" valign="top">
 
 ### Mouse Overlay
-- **5 mouse buttons** — LMB, RMB, MMB, Forward, Back
+- **5 mouse buttons** — LMB, RMB, MMB, M4 (Forward), M5 (Back)
+- **Per-button controls** — Show, Click#, and Reset toggles for each button
+- **Click counter modes** — total count or rate counter with decay
 - **Visual wheel indicator** — shows scroll direction
-- **Click counter** — track clicks per button
 - **Configurable offset** — position relative to keyboard
 - **Lock toggle** — prevent accidental movement
 
@@ -117,8 +120,10 @@ ZKey is a **real-time keyboard and mouse input overlay** designed for streamers,
 <td width="50%" valign="top">
 
 ### Customization
-- **8 color themes** — Green, Red, Purple, Cherry, Yellow, Dark, Light, Custom
+- **8 color themes** — per-keyboard and per-mouse theme presets
+- **Theme presets** — Green, Red, Purple, Cherry, Yellow, Dark, Light, Custom
 - **Draggable overlay** — move anywhere on screen, lock in place
+- **Pin toggle** — tilt animation when unpinned
 - **Always-on-top** — stays visible over games and applications
 - **Persistent config** — settings saved to `ZKey.json` automatically
 - **System tray** — quick toggle, settings access, quit
@@ -152,9 +157,11 @@ ZKey is a **real-time keyboard and mouse input overlay** designed for streamers,
 ```
 1. Launch ZKey.exe — overlay appears at default position
 2. Press Ctrl+Shift+K — opens Settings window
-3. Choose a keyboard layout, theme, and opacity
-4. Drag the overlay to reposition it
-5. Right-click tray icon to toggle overlay or quit
+3. General tab — choose keyboard layout, enable mouse overlay, configure per-button Show/Click#/Reset
+4. Theme tab — pick keyboard and mouse color presets
+5. Controls tab — adjust opacity, scale, pin, auto-hide
+6. Drag the overlay to reposition it, click pin to lock
+7. Right-click tray icon to toggle overlay or quit
 ```
 
 <br/>
@@ -222,21 +229,32 @@ C:\Qt\6.8.3\msvc2022_64\bin\windeployqt build/ZKey.exe
 
 ```
 ZKey/
-├── src/                    # C++ source code
-│   ├── main.cpp           # Entry point, tray icon, CLI
-│   ├── overlaywindow.*    # Overlay rendering (GDI+)
-│   ├── settingswindow.*   # Settings UI (Qt Widgets)
-│   ├── layouteditor.*     # Custom layout editor
-│   ├── pluginmanager.*    # Plugin lifecycle management
+├── src/                        # C++ source code
+│   ├── main.cpp               # Entry point, tray icon, CLI
+│   ├── overlaywidget.*        # Overlay rendering (keyboard + mouse)
+│   ├── overlaymanager.*       # Multi-overlay management
+│   ├── inputmanager.*         # Input hooks (keyboard + mouse)
+│   ├── settingswindow.*       # Settings UI shell + sidebar
+│   ├── settingspage_general.* # Keyboard/mouse enable, layouts, offsets
+│   ├── settingspage_theme.*   # Color presets for keyboard and mouse
+│   ├── settingspage_controls.* # Opacity, scale, pin, auto-hide
+│   ├── settingspage_osd.*     # OSD text mode settings
+│   ├── settingspage_plugins.* # Plugin marketplace
+│   ├── settingspage_profiles.* # Profile management
+│   ├── settingspage_settings.* # Hotkeys, updates, feedback
+│   ├── layouteditorwindow.*   # Custom layout editor
+│   ├── pluginmanager.*        # Plugin lifecycle management
+│   ├── theme.*                # 8 built-in color themes
+│   ├── toggleswitch.*         # Custom toggle switch widget
 │   └── ...
-├── plugins/                # Lua plugins
-│   ├── examples/          # Example plugins
-│   └── plugins_config/    # Plugin configuration files
-├── layouts/               # Built-in keyboard layouts
-├── icon/                  # Application icons
-├── resources.qrc          # Qt resource file
-├── CMakeLists.txt         # Build configuration
-├── installer.iss          # Inno Setup installer script
+├── plugins/                    # Lua plugins
+│   ├── examples/              # Example plugins
+│   └── plugins_config/        # Plugin configuration files
+├── layouts/                   # Built-in keyboard layouts
+├── icon/                      # Application icons
+├── resources.qrc              # Qt resource file
+├── CMakeLists.txt             # Build configuration
+├── installer.iss              # Inno Setup installer script
 └── README.md
 ```
 
@@ -268,11 +286,11 @@ ZKey.exe --list-plugins --json
 
 | Layout | Description |
 |--------|-------------|
-| **Whole Keyboard** | Full layout with function row, main keys, nav cluster, and numpad |
+| **Whole KB** | Full layout with function row, main keys, nav cluster, and numpad |
 | **No Numpad** | Same as above without the numpad |
-| **Only Numbers** | Single row of 0–9 plus Enter |
-| **Compact Numbers** | 3×3 grid + bottom row (phone numpad style) |
-| **Control Buttons** | WASD cluster with Tab, Shift, Ctrl, Alt, Space |
+| **Numbers** | Single row of 0–9 plus Enter |
+| **Compact** | 3×3 grid + bottom row (phone numpad style) |
+| **Ctrl Buttons** | WASD cluster with Tab, Shift, Ctrl, Alt, Space |
 
 <br/>
 
