@@ -296,25 +296,28 @@ ZKey.exe --list-plugins --json
 
 ## Security & Privacy
 
-ZKey uses Windows input hooks (`SetWindowsHookEx`) to capture keyboard and mouse events for the overlay. This is the **same API** used by keyloggers, which is why antivirus software may flag it.
+ZKey captures keyboard and mouse input using Windows low-level hooks to display real-time overlays. This is the standard approach used by all input overlay software on Windows.
 
-**Why hooks are needed:**
-- To detect key presses and highlight them on the overlay in real-time
-- To detect mouse button clicks and scroll wheel events
-- No other Windows API provides this functionality for a third-party overlay
+### Why input hooks are needed
+- Display pressed keys on the overlay instantly
+- Detect mouse button clicks and scroll wheel events
+- No alternative Windows API exists for real-time input detection by third-party apps
 
-**What ZKey does NOT do:**
-- Does **not** log or store keystrokes
-- Does **not** send data over the network (except plugin marketplace HTTPS requests)
-- Does **not** persist keystroke data to disk
-- Does **not** inject DLLs into other processes
-- Does **not** capture passwords or sensitive input selectively
-- Source code is fully auditable on GitHub
+### What ZKey does not do
+- Does **not** record, log, or store keystrokes
+- Does **not** send keystroke data over the network
+- Does **not** save input data to disk
+- Does **not** inject code into other processes
+- Does **not** capture passwords or sensitive fields
 
-**If your antivirus flags ZKey:**
-1. This is a **false positive** — ZKey is open source and safe
-2. Add an exception for the ZKey folder in your antivirus settings
-3. Submit the file to your antivirus vendor for whitelisting
+### Antivirus false positives
+
+Some antivirus software flags ZKey because it uses the same Windows API as keyloggers. This is a **false positive**. ZKey is fully open source and safe.
+
+**To resolve:**
+1. Add the ZKey folder to your antivirus exclusion list
+2. Submit `ZKey.exe` to your antivirus vendor for whitelisting
+3. Check [GitHub Issues](https://github.com/axs-offcl/ZKey/issues) for vendor-specific instructions
 
 <br/>
 
