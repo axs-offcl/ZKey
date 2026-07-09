@@ -196,7 +196,7 @@ L-Editor is a **standalone visual layout designer** for creating and customizing
 </p>
 
 1. Download from the [Releases](https://github.com/axs-offcl/ZKey/releases) page
-2. Extract `deploy.zip`
+2. Extract the zip for the app you need (ZKey overlay or L-Editor)
 3. Run `ZKey.exe` (overlay) or `L-Editor.exe` (layout editor)
 
 **Requirements:**
@@ -278,17 +278,40 @@ cd ZKey
 cmake -B build -G Ninja -DCMAKE_PREFIX_PATH=C:/Qt/6.8.3/msvc2022_64
 
 # Build (both targets)
-cmake --build build
+cmake --build build --config Release
 
-# Output
-#   build/Release/ZKey.exe      — Overlay runner
-#   build/Release/L-Editor.exe  — Layout editor
-#   build/Release/ZKeyCore.lib  — Shared core library
+# Output (isolated deployment folders)
+#   build/ZKey/ZKey.exe          — Overlay runner (own DLLs, plugins/)
+#   build/L-Editor/L-Editor.exe  — Layout editor (own DLLs, plugins/)
+#   build/ZKeyCore.lib           — Shared core library
 
-# Deploy Qt DLLs
-C:\Qt\6.8.3\msvc2022_64\bin\windeployqt build/ZKey.exe
-C:\Qt\6.8.3\msvc2022_64\bin\windeployqt build/L-Editor.exe
+# Note: Qt DLLs are deployed automatically via CMake POST_BUILD step.
+# Each executable gets its own complete copy in its output folder.
 ```
+
+<br/>
+
+## Build Output Layout
+
+```
+build/
+├── ZKeyCore.lib                    # Shared static library
+├── ZKey/                           # Overlay runner (self-contained)
+│   ├── ZKey.exe
+│   ├── plugins/                    # Copied from source plugins/
+│   ├── Qt6Core.dll
+│   ├── Qt6Widgets.dll
+│   ├── ...                         # All required DLLs
+│   └── translations/               # Qt translation files
+├── L-Editor/                       # Layout editor (self-contained)
+│   ├── L-Editor.exe
+│   ├── Qt6Core.dll
+│   ├── Qt6Widgets.dll
+│   ├── ...                         # All required DLLs
+│   └── translations/               # Qt translation files
+```
+
+Each executable is fully self-contained in its own folder — no shared DLLs, no conflicts. Ready to zip and distribute independently.
 
 <br/>
 
