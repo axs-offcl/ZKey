@@ -34,6 +34,59 @@
 
 ZKey is a **real-time keyboard and mouse input overlay** designed for streamers, gamers, and content creators. It displays an always-on-top, semi-transparent virtual keyboard and mouse that highlights keys as you press them — perfect for tutorials, live streams, and screen recordings.
 
+ZKey ships as **two standalone applications**:
+
+- **`ZKey.exe`** — the overlay runner (system tray, hotkeys, plugin system)
+- **`L-Editor.exe`** — the standalone layout editor
+
+<br/>
+
+---
+
+<br/>
+
+<p align="center">
+  <img src="icon/L-Editor.ico" width="150" alt="L-Editor Icon"/>
+</p>
+
+<h1 align="center">L-Editor</h1>
+
+<p align="center">
+  <strong>Standalone Layout Editor for ZKey</strong>
+</p>
+
+## What is L-Editor?
+
+L-Editor is a **standalone visual layout designer** for creating and customizing keyboard and mouse overlay layouts. It runs independently from the ZKey overlay — no overlay instance needed while editing.
+
+### Why a separate app?
+- **Zero overhead** — the editor doesn't load the overlay engine, plugins, or input hooks
+- **Stable editing** — layout changes never affect a live overlay session
+- **Independent releases** — update the editor without touching the runner
+
+### Editor Features
+- **Drag-and-drop** — place, move, and resize keys on a freeform canvas
+- **Multi-element support** — keyboard keys, mouse buttons, speed indicators, scroll counters
+- **Polygon key shapes** — define custom key outlines with vertex points
+- **Image textures** — apply custom images to any key
+- **Per-element style overrides** — held colors, text offsets, hide labels
+- **Realistic keycap rendering** — 3D keycap effect with shadows and highlights
+- **Mouse button editor** — visual LMB/RMB/MMB/M4/M5 with icon rendering
+- **Speed indicator** — gradient pie wedge based on mouse velocity
+- **Context menus** — right-click any element for quick style edits
+- **Undo/Redo** — full undo stack for all operations
+- **Import/Export** — save layouts as `.zkeylayout` files
+- **Key palette** — browse all available keys and drag them onto the canvas
+
+### Usage
+```
+1. Launch L-Editor.exe — blank canvas opens
+2. Drag keys from the palette onto the canvas
+3. Right-click keys to change colors, size, font, shape
+4. File > Save Layout — exports as .zkeylayout
+5. In ZKey.exe — General tab > Load your custom layout
+```
+
 <br/>
 
 ## Demo
@@ -144,7 +197,7 @@ ZKey is a **real-time keyboard and mouse input overlay** designed for streamers,
 
 1. Download from the [Releases](https://github.com/axs-offcl/ZKey/releases) page
 2. Extract `deploy.zip`
-3. Run `ZKey.exe`
+3. Run `ZKey.exe` (overlay) or `L-Editor.exe` (layout editor)
 
 **Requirements:**
 - Windows 10/11 64-bit
@@ -155,6 +208,7 @@ ZKey is a **real-time keyboard and mouse input overlay** designed for streamers,
 ## Quick Start
 
 ```
+ZKey.exe (Overlay)
 1. Launch ZKey.exe — overlay appears at default position
 2. Press Ctrl+Shift+K — opens Settings window
 3. General tab — choose keyboard layout, enable mouse overlay, configure per-button Show/Click#/Reset
@@ -162,6 +216,13 @@ ZKey is a **real-time keyboard and mouse input overlay** designed for streamers,
 5. Controls tab — adjust opacity, scale, pin, auto-hide
 6. Drag the overlay to reposition it, click pin to lock
 7. Right-click tray icon to toggle overlay or quit
+
+L-Editor.exe (Layout Editor)
+1. Launch L-Editor.exe — blank canvas opens
+2. Drag keys from the palette onto the canvas
+3. Right-click keys to change colors, size, font, shape
+4. File > Save Layout — exports as .zkeylayout
+5. In ZKey.exe — General tab > Load your custom layout
 ```
 
 <br/>
@@ -216,11 +277,17 @@ cd ZKey
 # Configure
 cmake -B build -G Ninja -DCMAKE_PREFIX_PATH=C:/Qt/6.8.3/msvc2022_64
 
-# Build
+# Build (both targets)
 cmake --build build
+
+# Output
+#   build/Release/ZKey.exe      — Overlay runner
+#   build/Release/L-Editor.exe  — Layout editor
+#   build/Release/ZKeyCore.lib  — Shared core library
 
 # Deploy Qt DLLs
 C:\Qt\6.8.3\msvc2022_64\bin\windeployqt build/ZKey.exe
+C:\Qt\6.8.3\msvc2022_64\bin\windeployqt build/L-Editor.exe
 ```
 
 <br/>
@@ -229,39 +296,53 @@ C:\Qt\6.8.3\msvc2022_64\bin\windeployqt build/ZKey.exe
 
 ```
 ZKey/
-├── src/                        # C++ source code (modular, one file per feature)
-│   ├── main.cpp                # Entry point, tray icon, CLI
-│   ├── overlaywidget.*         # Overlay rendering (keyboard + mouse)
-│   ├── overlaymanager.*        # Multi-overlay management
-│   ├── inputmanager.*          # Input hooks (keyboard + mouse)
-│   ├── settingswindow.*        # Settings UI shell + sidebar
-│   ├── settingspage_general.*  # Keyboard/mouse enable, layouts, offsets
-│   ├── settingspage_theme.*    # Color presets for keyboard and mouse
-│   ├── settingspage_controls.* # Opacity, scale, pin, auto-hide
-│   ├── settingspage_osd.*      # OSD text mode settings
-│   ├── settingspage_plugins.*  # Plugin marketplace
-│   ├── settingspage_profiles.* # Profile management
-│   ├── settingspage_settings.* # Hotkeys, updates, feedback
-│   ├── layouteditorwindow.*    # Custom layout editor
-│   ├── layoutmodel.h           # Data models (CustomKeyButton, KeyStyleOverride)
-│   ├── layoutcommands.*        # Undo/redo commands for layout editor
-│   ├── contextmenu_keyboard.*  # Keyboard key context menu
-│   ├── contextmenu_mouse.*     # Mouse button context menu
-│   ├── contextmenu_speed.*     # Speed indicator context menu
-│   ├── contextmenu_counter.*   # Scroll counter context menu
-│   ├── pluginmanager.*         # Plugin lifecycle management
-│   ├── theme.*                 # 8 built-in color themes
-│   ├── toggleswitch.*          # Custom toggle switch widget
-│   ├── styledslider.*          # Custom styled slider widget
-│   └── ...
-├── plugins/                    # Lua plugins
-│   ├── examples/               # Example plugins
-│   └── plugins_config/         # Plugin configuration files
-├── layouts/                    # Built-in keyboard layouts
-├── icon/                       # Application icons
-├── resources.qrc               # Qt resource file
-├── CMakeLists.txt              # Build configuration
-├── installer.iss               # Inno Setup installer script
+├── src/
+│   ├── core/                     # Shared core library (ZKeyCore)
+│   │   ├── layoutmodel.h         # Data models (CustomKeyButton, KeyStyleOverride)
+│   │   ├── keyboards.h           # Keyboard layout definitions
+│   │   ├── keyboarddetector.*    # Game window detection
+│   │   ├── layoutmanager.*       # Layout loading/saving
+│   │   ├── theme.*               # 8 built-in color themes
+│   │   ├── config.*              # Configuration management
+│   │   └── mouselayoutdata.h     # Mouse layout data structures
+│   ├── overlay/                  # ZKey.exe (overlay runner)
+│   │   ├── main_overlay.cpp      # Entry point, tray icon, CLI
+│   │   ├── overlaywidget.*       # Overlay rendering (keyboard + mouse)
+│   │   ├── overlaymanager.*      # Multi-overlay management
+│   │   ├── inputmanager.*        # Input hooks (keyboard + mouse)
+│   │   ├── settingswindow.*      # Settings UI shell + sidebar
+│   │   ├── settingspage_general.* # Keyboard/mouse enable, layouts, offsets
+│   │   ├── settingspage_theme.*  # Color presets for keyboard and mouse
+│   │   ├── settingspage_controls.* # Opacity, scale, pin, auto-hide
+│   │   ├── settingspage_osd.*    # OSD text mode settings
+│   │   ├── settingspage_plugins.* # Plugin marketplace
+│   │   ├── settingspage_profiles.* # Profile management
+│   │   ├── settingspage_settings.* # Hotkeys, updates, feedback
+│   │   ├── pluginmanager.*       # Plugin lifecycle management
+│   │   ├── themewidget.*         # Theme apply widget (depends on QWidget)
+│   │   └── ...
+│   ├── editor/                   # L-Editor.exe (layout editor)
+│   │   ├── main_editor.cpp       # Entry point
+│   │   ├── layouteditorwindow.*  # Custom layout editor
+│   │   ├── layoutcommands.*      # Undo/redo commands
+│   │   ├── contextmenu_keyboard.* # Keyboard key context menu
+│   │   ├── contextmenu_mouse.*   # Mouse button context menu
+│   │   ├── contextmenu_speed.*   # Speed indicator context menu
+│   │   ├── contextmenu_counter.* # Scroll counter context menu
+│   │   ├── mouselayouteditorwindow.* # Mouse layout editor
+│   │   ├── presskeydialog.*      # Press key dialog
+│   │   ├── keypalette.*          # Key palette widget
+│   │   └── ...
+│   └── lua/                      # Lua plugin engine
+├── plugins/                      # Lua plugins
+│   ├── examples/                 # Example plugins
+│   └── plugins_config/           # Plugin configuration files
+├── layouts/                      # Built-in keyboard layouts
+├── icon/                         # Application icons (zkey.ico, L-Editor.ico)
+├── resources.qrc                 # Qt resource file
+├── CMakeLists.txt                # Build configuration
+├── installer_zkey.iss            # Inno Setup installer (ZKey)
+├── installer_leditor.iss         # Inno Setup installer (L-Editor)
 └── README.md
 ```
 
