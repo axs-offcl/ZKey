@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="icon/zkey.ico" width="100" alt="ZKey Logo"/>
+  <img src="Zkey-logo.png" width="200" alt="ZKey Logo"/>
 </p>
 
 <h1 align="center">ZKey</h1>
@@ -137,12 +137,12 @@ ZKey is a **real-time keyboard and mouse input overlay** designed for streamers,
 ## Download
 
 <p align="center">
-  <a href="https://github.com/yourusername/ZKey/releases">
+  <a href="https://github.com/axs-offcl/ZKey/releases">
     <img src="https://forthebadge.com/api/badges/generate?primaryLabel=DOWNLOAD&secondaryLabel=latest+release&primaryBGColor=%237C3AED&primaryTextColor=%23FFFFFF&secondaryBGColor=%235B21B6&secondaryTextColor=%23FFFFFF&primaryFontWeight=900&primaryLetterSpacing=3" alt="Download Latest Release"/>
   </a>
 </p>
 
-1. Download from the [Releases](https://github.com/yourusername/ZKey/releases) page
+1. Download from the [Releases](https://github.com/axs-offcl/ZKey/releases) page
 2. Extract `deploy.zip`
 3. Run `ZKey.exe`
 
@@ -181,7 +181,7 @@ end
 -- Add a settings page
 zkey.addSettingsPage({
     title = "My Plugin",
-    icon = "\u{2699}",
+    icon = "⚙",
     controls = {
         { type = "slider", id = "speed", label = "Speed", min = 1, max = 100, default = 50 },
         { type = "checkbox", id = "enabled", label = "Enabled", default = true }
@@ -229,32 +229,39 @@ C:\Qt\6.8.3\msvc2022_64\bin\windeployqt build/ZKey.exe
 
 ```
 ZKey/
-├── src/                        # C++ source code
-│   ├── main.cpp               # Entry point, tray icon, CLI
-│   ├── overlaywidget.*        # Overlay rendering (keyboard + mouse)
-│   ├── overlaymanager.*       # Multi-overlay management
-│   ├── inputmanager.*         # Input hooks (keyboard + mouse)
-│   ├── settingswindow.*       # Settings UI shell + sidebar
-│   ├── settingspage_general.* # Keyboard/mouse enable, layouts, offsets
-│   ├── settingspage_theme.*   # Color presets for keyboard and mouse
+├── src/                        # C++ source code (modular, one file per feature)
+│   ├── main.cpp                # Entry point, tray icon, CLI
+│   ├── overlaywidget.*         # Overlay rendering (keyboard + mouse)
+│   ├── overlaymanager.*        # Multi-overlay management
+│   ├── inputmanager.*          # Input hooks (keyboard + mouse)
+│   ├── settingswindow.*        # Settings UI shell + sidebar
+│   ├── settingspage_general.*  # Keyboard/mouse enable, layouts, offsets
+│   ├── settingspage_theme.*    # Color presets for keyboard and mouse
 │   ├── settingspage_controls.* # Opacity, scale, pin, auto-hide
-│   ├── settingspage_osd.*     # OSD text mode settings
-│   ├── settingspage_plugins.* # Plugin marketplace
+│   ├── settingspage_osd.*      # OSD text mode settings
+│   ├── settingspage_plugins.*  # Plugin marketplace
 │   ├── settingspage_profiles.* # Profile management
 │   ├── settingspage_settings.* # Hotkeys, updates, feedback
-│   ├── layouteditorwindow.*   # Custom layout editor
-│   ├── pluginmanager.*        # Plugin lifecycle management
-│   ├── theme.*                # 8 built-in color themes
-│   ├── toggleswitch.*         # Custom toggle switch widget
+│   ├── layouteditorwindow.*    # Custom layout editor
+│   ├── layoutmodel.h           # Data models (CustomKeyButton, KeyStyleOverride)
+│   ├── layoutcommands.*        # Undo/redo commands for layout editor
+│   ├── contextmenu_keyboard.*  # Keyboard key context menu
+│   ├── contextmenu_mouse.*     # Mouse button context menu
+│   ├── contextmenu_speed.*     # Speed indicator context menu
+│   ├── contextmenu_counter.*   # Scroll counter context menu
+│   ├── pluginmanager.*         # Plugin lifecycle management
+│   ├── theme.*                 # 8 built-in color themes
+│   ├── toggleswitch.*          # Custom toggle switch widget
+│   ├── styledslider.*          # Custom styled slider widget
 │   └── ...
 ├── plugins/                    # Lua plugins
-│   ├── examples/              # Example plugins
-│   └── plugins_config/        # Plugin configuration files
-├── layouts/                   # Built-in keyboard layouts
-├── icon/                      # Application icons
-├── resources.qrc              # Qt resource file
-├── CMakeLists.txt             # Build configuration
-├── installer.iss              # Inno Setup installer script
+│   ├── examples/               # Example plugins
+│   └── plugins_config/         # Plugin configuration files
+├── layouts/                    # Built-in keyboard layouts
+├── icon/                       # Application icons
+├── resources.qrc               # Qt resource file
+├── CMakeLists.txt              # Build configuration
+├── installer.iss               # Inno Setup installer script
 └── README.md
 ```
 
