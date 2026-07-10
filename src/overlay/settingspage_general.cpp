@@ -31,8 +31,6 @@
 #include <QClipboard>
 #include <QApplication>
 #include <QMessageBox>
-#include <QDesktopServices>
-#include <QUrl>
 #ifdef Q_OS_WIN
 #include <windows.h>
 #endif
@@ -326,31 +324,6 @@ SettingsPage_General::SettingsPage_General(SettingsContext &ctx, QWidget *parent
     srcRow->addWidget(m_customLayoutCombo);
     srcRow->addWidget(m_editLayoutBtn);
     kbForm->addRow("Source:", srcRow);
-
-    m_downloadLEditorBtn = new QPushButton("  Get L-Editor  — Design Custom Layouts");
-    m_downloadLEditorBtn->setCursor(Qt::PointingHandCursor);
-    m_downloadLEditorBtn->setMinimumHeight(36);
-    m_downloadLEditorBtn->setStyleSheet(
-        "QPushButton {"
-        "  background-color: #7C3AED;"
-        "  color: white;"
-        "  border: none;"
-        "  border-radius: 6px;"
-        "  padding: 6px 16px;"
-        "  font-weight: bold;"
-        "  font-size: 12px;"
-        "}"
-        "QPushButton:hover {"
-        "  background-color: #6D28D9;"
-        "}"
-        "QPushButton:pressed {"
-        "  background-color: #5B21B6;"
-        "}"
-    );
-    connect(m_downloadLEditorBtn, &QPushButton::clicked, this, []() {
-        QDesktopServices::openUrl(QUrl("https://github.com/axs-offcl/ZKey/releases"));
-    });
-    kbForm->addRow("", m_downloadLEditorBtn);
 
     m_keyboardLangCombo = new QComboBox;
     m_keyboardLangCombo->addItems({"Auto-detect", "US QWERTY", "French AZERTY", "German QWERTZ", "Spanish", "Arabic", "Turkish", "Portuguese",

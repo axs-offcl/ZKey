@@ -461,6 +461,44 @@ Distributed under the **GNU General Public License v3.0**. See [LICENSE](LICENSE
 
 <br/>
 
+## Share ZKey
+
+<p align="center">
+  <strong>Spread the word and help others discover ZKey!</strong>
+</p>
+
+<p align="center">
+  <a href="https://twitter.com/intent/tweet?text=Check%20out%20ZKey%20%E2%80%94%20a%20free%20open-source%20keyboard%20%26%20mouse%20overlay%20for%20Windows!%20https://github.com/axs-offcl/ZKey">
+    <img src="https://img.shields.io/badge/Twitter-Share-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Share on Twitter"/>
+  </a>
+  &nbsp;
+  <a href="https://www.reddit.com/submit?url=https://github.com/axs-offcl/ZKey&title=ZKey%20%E2%80%94%20Free%20Open-Source%20Keyboard%20%26%20Mouse%20Overlay%20for%20Windows">
+    <img src="https://img.shields.io/badge/Reddit-Share-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="Share on Reddit"/>
+  </a>
+  &nbsp;
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/axs-offcl/ZKey">
+    <img src="https://img.shields.io/badge/Facebook-Share-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Share on Facebook"/>
+  </a>
+  &nbsp;
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/axs-offcl/ZKey">
+    <img src="https://img.shields.io/badge/LinkedIn-Share-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="Share on LinkedIn"/>
+  </a>
+  &nbsp;
+  <a href="https://t.me/share/url?url=https://github.com/axs-offcl/ZKey&text=ZKey%20%E2%80%94%20Free%20Open-Source%20Keyboard%20%26%20Mouse%20Overlay%20for%20Windows">
+    <img src="https://img.shields.io/badge/Telegram-Share-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Share on Telegram"/>
+  </a>
+  &nbsp;
+  <a href="https://api.whatsapp.com/send?text=Check%20out%20ZKey%20%E2%80%94%20a%20free%20open-source%20keyboard%20%26%20mouse%20overlay%20for%20Windows!%20https://github.com/axs-offcl/ZKey">
+    <img src="https://img.shields.io/badge/WhatsApp-Share-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Share on WhatsApp"/>
+  </a>
+  &nbsp;
+  <a href="https://news.ycombinator.com/submitlink?u=https://github.com/axs-offcl/ZKey&title=ZKey%20%E2%80%94%20Free%20Open-Source%20Keyboard%20%26%20Mouse%20Overlay%20for%20Windows">
+    <img src="https://img.shields.io/badge/Hacker%20News-Share-FF6600?style=for-the-badge&logo=ycombinator&logoColor=white" alt="Share on Hacker News"/>
+  </a>
+</p>
+
+<br/>
+
 <p align="center">
   <img src="https://forthebadge.com/api/badges/generate?primaryLabel=BUILT&secondaryLabel=WITH+LOVE&panels=3&primaryBGColor=%23EF4444&primaryTextColor=%23FFFFFF&secondaryBGColor=%23DC2626&secondaryTextColor=%23FFFFFF&tertiaryBGColor=%23B91C1C&tertiaryTextColor=%23FFFFFF&primaryIcon=github&primaryIconColor=%23FFFFFF&primaryIconSize=16" alt="Built with Love"/>
 </p>

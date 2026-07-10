@@ -51,7 +51,6 @@ private:
     QComboBox *m_customLayoutCombo = nullptr;
     QComboBox *m_keyboardLangCombo = nullptr;
     QPushButton *m_editLayoutBtn = nullptr;
-    QPushButton *m_downloadLEditorBtn = nullptr;
     ToggleSwitch *m_showKeyboardToggle = nullptr;
     ToggleSwitch *m_showMouseToggle = nullptr;
     QSpinBox *m_mouseOffsetX = nullptr;
