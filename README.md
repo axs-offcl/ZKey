@@ -480,10 +480,6 @@ Distributed under the **GNU General Public License v3.0**. See [LICENSE](LICENSE
     <img src="https://img.shields.io/badge/Facebook-Share-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Share on Facebook"/>
   </a>
   &nbsp;
-  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/axs-offcl/ZKey">
-    <img src="https://img.shields.io/badge/LinkedIn-Share-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="Share on LinkedIn"/>
-  </a>
-  &nbsp;
   <a href="https://t.me/share/url?url=https://github.com/axs-offcl/ZKey&text=ZKey%20%E2%80%94%20Real-time%20Keyboard%20%26%20Mouse%20Overlay%20for%20Windows.%20Open%20source%20%26%20free.">
     <img src="https://img.shields.io/badge/Telegram-Share-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Share on Telegram"/>
   </a>
