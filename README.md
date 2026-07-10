@@ -468,11 +468,11 @@ Distributed under the **GNU General Public License v3.0**. See [LICENSE](LICENSE
 </p>
 
 <p align="center">
-  <a href="https://twitter.com/intent/tweet?text=Check%20out%20ZKey%20%E2%80%94%20a%20free%20open-source%20keyboard%20%26%20mouse%20overlay%20for%20Windows!%20https://github.com/axs-offcl/ZKey">
+  <a href="https://twitter.com/intent/tweet?text=ZKey%20%E2%80%94%20a%20real-time%20keyboard%20%26%20mouse%20overlay%20for%20Windows.%20Perfect%20for%20streamers%20%26%20content%20creators.%20Open%20source%2C%20free%2C%20no%20bloat.%20https://github.com/axs-offcl/ZKey">
     <img src="https://img.shields.io/badge/Twitter-Share-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Share on Twitter"/>
   </a>
   &nbsp;
-  <a href="https://www.reddit.com/submit?url=https://github.com/axs-offcl/ZKey&title=ZKey%20%E2%80%94%20Free%20Open-Source%20Keyboard%20%26%20Mouse%20Overlay%20for%20Windows">
+  <a href="https://www.reddit.com/submit?url=https://github.com/axs-offcl/ZKey&title=ZKey%20%E2%80%94%20Real-time%20Keyboard%20%26%20Mouse%20Overlay%20for%20Windows">
     <img src="https://img.shields.io/badge/Reddit-Share-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="Share on Reddit"/>
   </a>
   &nbsp;
@@ -484,16 +484,12 @@ Distributed under the **GNU General Public License v3.0**. See [LICENSE](LICENSE
     <img src="https://img.shields.io/badge/LinkedIn-Share-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="Share on LinkedIn"/>
   </a>
   &nbsp;
-  <a href="https://t.me/share/url?url=https://github.com/axs-offcl/ZKey&text=ZKey%20%E2%80%94%20Free%20Open-Source%20Keyboard%20%26%20Mouse%20Overlay%20for%20Windows">
+  <a href="https://t.me/share/url?url=https://github.com/axs-offcl/ZKey&text=ZKey%20%E2%80%94%20Real-time%20Keyboard%20%26%20Mouse%20Overlay%20for%20Windows.%20Open%20source%20%26%20free.">
     <img src="https://img.shields.io/badge/Telegram-Share-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Share on Telegram"/>
   </a>
   &nbsp;
-  <a href="https://api.whatsapp.com/send?text=Check%20out%20ZKey%20%E2%80%94%20a%20free%20open-source%20keyboard%20%26%20mouse%20overlay%20for%20Windows!%20https://github.com/axs-offcl/ZKey">
+  <a href="https://api.whatsapp.com/send?text=Check%20out%20ZKey%20%E2%80%94%20a%20real-time%20keyboard%20%26%20mouse%20overlay%20for%20Windows.%20Open%20source%20%26%20free.%20https://github.com/axs-offcl/ZKey">
     <img src="https://img.shields.io/badge/WhatsApp-Share-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Share on WhatsApp"/>
-  </a>
-  &nbsp;
-  <a href="https://news.ycombinator.com/submitlink?u=https://github.com/axs-offcl/ZKey&title=ZKey%20%E2%80%94%20Free%20Open-Source%20Keyboard%20%26%20Mouse%20Overlay%20for%20Windows">
-    <img src="https://img.shields.io/badge/Hacker%20News-Share-FF6600?style=for-the-badge&logo=ycombinator&logoColor=white" alt="Share on Hacker News"/>
   </a>
 </p>
 
