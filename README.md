@@ -469,23 +469,23 @@ Distributed under the **GNU General Public License v3.0**. See [LICENSE](LICENSE
 
 <p align="center">
   <a href="https://twitter.com/intent/tweet?text=ZKey%20%E2%80%94%20a%20real-time%20keyboard%20%26%20mouse%20overlay%20for%20Windows.%20Perfect%20for%20streamers%20%26%20content%20creators.%20Open%20source%2C%20free%2C%20no%20bloat.%20https://github.com/axs-offcl/ZKey">
-    <img src="https://img.shields.io/badge/Twitter-Share-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Share on Twitter"/>
+    <img src="https://img.shields.io/badge/Share_on_Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white&labelColor=1DA1F2" alt="Twitter"/>
   </a>
   &nbsp;
   <a href="https://www.reddit.com/submit?url=https://github.com/axs-offcl/ZKey&title=ZKey%20%E2%80%94%20Real-time%20Keyboard%20%26%20Mouse%20Overlay%20for%20Windows">
-    <img src="https://img.shields.io/badge/Reddit-Share-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="Share on Reddit"/>
+    <img src="https://img.shields.io/badge/Share_on_Reddit-FF4500?style=flat-square&logo=reddit&logoColor=white&labelColor=FF4500" alt="Reddit"/>
   </a>
   &nbsp;
   <a href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/axs-offcl/ZKey">
-    <img src="https://img.shields.io/badge/Facebook-Share-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Share on Facebook"/>
+    <img src="https://img.shields.io/badge/Share_on_Facebook-1877F2?style=flat-square&logo=facebook&logoColor=white&labelColor=1877F2" alt="Facebook"/>
   </a>
   &nbsp;
   <a href="https://t.me/share/url?url=https://github.com/axs-offcl/ZKey&text=ZKey%20%E2%80%94%20Real-time%20Keyboard%20%26%20Mouse%20Overlay%20for%20Windows.%20Open%20source%20%26%20free.">
-    <img src="https://img.shields.io/badge/Telegram-Share-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Share on Telegram"/>
+    <img src="https://img.shields.io/badge/Share_on_Telegram-26A5E4?style=flat-square&logo=telegram&logoColor=white&labelColor=26A5E4" alt="Telegram"/>
   </a>
   &nbsp;
   <a href="https://api.whatsapp.com/send?text=Check%20out%20ZKey%20%E2%80%94%20a%20real-time%20keyboard%20%26%20mouse%20overlay%20for%20Windows.%20Open%20source%20%26%20free.%20https://github.com/axs-offcl/ZKey">
-    <img src="https://img.shields.io/badge/WhatsApp-Share-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Share on WhatsApp"/>
+    <img src="https://img.shields.io/badge/Share_on_WhatsApp-25D366?style=flat-square&logo=whatsapp&logoColor=white&labelColor=25D366" alt="WhatsApp"/>
   </a>
 </p>
 
