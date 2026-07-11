@@ -77,6 +77,8 @@ L-Editor is a **standalone visual layout designer** for creating and customizing
 - **Undo/Redo** — full undo stack for all operations
 - **Import/Export** — save layouts as `.zkeylayout` files
 - **Key palette** — browse all available keys and drag them onto the canvas
+- **Dark/Light theme** — toggle between dark and light themes with one click
+- **Custom title bar** — frameless window with theme toggle and close button
 
 ### Usage
 ```
@@ -112,11 +114,13 @@ L-Editor is a **standalone visual layout designer** for creating and customizing
 ### Keyboard Overlay
 - **5 keyboard layouts** — Whole Keyboard, No Numpad, Numbers, Compact, Ctrl Buttons
 - **Custom layouts** — design your own with the built-in Layout Editor
+- **JSON layouts** — external `.json` layout files with polygon shapes and PNG textures
 - **Real-time highlighting** — pressed keys light up instantly
 - **Per-key customization** — colors, font size, bold, corner radius, gradient, glow
 - **Independent opacity** — separate sliders for keyboard and mouse
 - **Auto-hide** — hides when a game window is in focus
 - **KPS counter** — keys per second with Show/Reset toggles
+- **Keystyle files** — `.zkeystyle` JSON files for visual presets (5 built-in styles)
 
 </td>
 <td width="50%" valign="top">
@@ -149,10 +153,17 @@ L-Editor is a **standalone visual layout designer** for creating and customizing
 
 ### Layout Editor
 - **Drag-and-drop** — design custom keyboard layouts on a grid
+- **Multi-element support** — keyboard keys, mouse buttons, speed indicators, counters
+- **Polygon key shapes** — custom key outlines with vertex points
+- **Image textures** — apply custom images to any key
+- **Per-element style overrides** — held colors, text offsets, hide labels
+- **Realistic keycap rendering** — 3D keycap effect with shadows and highlights
 - **Multi-select** — marquee or Shift+click selection
 - **Undo/Redo** — full undo stack for all operations
 - **Import/Export** — save as `.zkeylayout` files
 - **5 built-in presets** — start from existing layouts
+- **Dark/Light theme** — toggle between themes with one click
+- **Custom title bar** — frameless window with theme toggle and close button
 
 </td>
 </tr>
@@ -168,6 +179,8 @@ L-Editor is a **standalone visual layout designer** for creating and customizing
 - **Profile Marketplace** — download community profiles from GitHub
 - **Export as Image** — capture overlays as PNG/JPEG/BMP
 - **OSD Mode** — floating text overlay for pressed keys
+- **JSON layouts** — external layout files with polygon shapes and PNG textures
+- **Keystyle system** — `.zkeystyle` files for visual presets (colors, borders, textures)
 
 </td>
 <td width="50%" valign="top">
@@ -175,9 +188,11 @@ L-Editor is a **standalone visual layout designer** for creating and customizing
 ### Customization
 - **8 color themes** — per-keyboard and per-mouse theme presets
 - **Theme presets** — Green, Red, Purple, Cherry, Yellow, Dark, Light, Custom
+- **Keystyle presets** — Minimal, Neon, Glass, DarkPro, Light (`.zkeystyle` files)
 - **Draggable overlay** — move anywhere on screen, lock in place
 - **Pin toggle** — tilt animation when unpinned
 - **Always-on-top** — stays visible over games and applications
+- **Transparency control** — adjustable window opacity (10-100%) via Settings
 - **Persistent config** — settings saved to `ZKey.json` automatically
 - **System tray** — quick toggle, settings access, quit
 
@@ -213,16 +228,18 @@ ZKey.exe (Overlay)
 2. Press Ctrl+Shift+K — opens Settings window
 3. General tab — choose keyboard layout, enable mouse overlay, configure per-button Show/Click#/Reset
 4. Theme tab — pick keyboard and mouse color presets
-5. Controls tab — adjust opacity, scale, pin, auto-hide
-6. Drag the overlay to reposition it, click pin to lock
-7. Right-click tray icon to toggle overlay or quit
+5. Controls tab — adjust opacity, scale, pin, auto-hide, select keystyle preset
+6. Settings tab — configure hotkeys, transparency, check for updates
+7. Drag the overlay to reposition it, click pin to lock
+8. Right-click tray icon to toggle overlay or quit
 
 L-Editor.exe (Layout Editor)
-1. Launch L-Editor.exe — blank canvas opens
+1. Launch L-Editor.exe — canvas opens with dark theme
 2. Drag keys from the palette onto the canvas
-3. Right-click keys to change colors, size, font, shape
-4. File > Save Layout — exports as .zkeylayout
-5. In ZKey.exe — General tab > Load your custom layout
+3. Right-click keys to change colors, size, font, shape, texture
+4. Use the moon/sun button in the title bar to toggle dark/light theme
+5. File > Save Layout — exports as .zkeylayout
+6. In ZKey.exe — General tab > Load your custom layout
 ```
 
 <br/>
@@ -325,28 +342,34 @@ ZKey/
 │   │   ├── keyboards.h           # Keyboard layout definitions
 │   │   ├── keyboarddetector.*    # Game window detection
 │   │   ├── layoutmanager.*       # Layout loading/saving
+│   │   ├── jsonlayout.*          # JSON layout format support
+│   │   ├── keystylefile.*        # .zkeystyle file format & manager
 │   │   ├── theme.*               # 8 built-in color themes
 │   │   ├── config.*              # Configuration management
 │   │   └── mouselayoutdata.h     # Mouse layout data structures
 │   ├── overlay/                  # ZKey.exe (overlay runner)
 │   │   ├── main_overlay.cpp      # Entry point, tray icon, CLI
 │   │   ├── overlaywidget.*       # Overlay rendering (keyboard + mouse)
+│   │   ├── keycaprenderer.*      # Professional keycap rendering (flat/realistic)
+│   │   ├── professionalstyle.*   # Custom Qt style (buttons, scrollbars, etc.)
 │   │   ├── overlaymanager.*      # Multi-overlay management
 │   │   ├── inputmanager.*        # Input hooks (keyboard + mouse)
 │   │   ├── settingswindow.*      # Settings UI shell + sidebar
 │   │   ├── settingspage_general.* # Keyboard/mouse enable, layouts, offsets
 │   │   ├── settingspage_theme.*  # Color presets for keyboard and mouse
 │   │   ├── settingspage_controls.* # Opacity, scale, pin, auto-hide
+│   │   ├── settingspage_settings.* # Hotkeys, transparency, updates, feedback
+│   │   ├── settingspage_appearance.* # Accent color, appearance settings
 │   │   ├── settingspage_osd.*    # OSD text mode settings
 │   │   ├── settingspage_plugins.* # Plugin marketplace
 │   │   ├── settingspage_profiles.* # Profile management
-│   │   ├── settingspage_settings.* # Hotkeys, updates, feedback
+│   │   ├── settingspage_colors.* # Per-key color editor
 │   │   ├── pluginmanager.*       # Plugin lifecycle management
 │   │   ├── themewidget.*         # Theme apply widget (depends on QWidget)
 │   │   └── ...
 │   ├── editor/                   # L-Editor.exe (layout editor)
 │   │   ├── main_editor.cpp       # Entry point
-│   │   ├── layouteditorwindow.*  # Custom layout editor
+│   │   ├── layouteditorwindow.*  # Custom layout editor (dark/light theme)
 │   │   ├── layoutcommands.*      # Undo/redo commands
 │   │   ├── contextmenu_keyboard.* # Keyboard key context menu
 │   │   ├── contextmenu_mouse.*   # Mouse button context menu
@@ -361,6 +384,9 @@ ZKey/
 │   ├── examples/                 # Example plugins
 │   └── plugins_config/           # Plugin configuration files
 ├── layouts/                      # Built-in keyboard layouts
+│   ├── json/                     # JSON layout files
+│   └── ...                       # C++ built-in layouts
+├── styles/                       # Keystyle preset files (.zkeystyle)
 ├── icon/                         # Application icons (zkey.ico, L-Editor.ico)
 ├── resources.qrc                 # Qt resource file
 ├── CMakeLists.txt                # Build configuration
@@ -402,6 +428,17 @@ ZKey.exe --list-plugins --json
 | **Numbers** | Single row of 0–9 plus Enter |
 | **Compact** | 3×3 grid + bottom row (phone numpad style) |
 | **Ctrl Buttons** | WASD cluster with Tab, Shift, Ctrl, Alt, Space |
+| **JSON layouts** | External `.json` files with polygon shapes, PNG textures, and bitmap caching |
+
+### Keystyle Presets
+
+| Style | Description |
+|-------|-------------|
+| **Minimal** | Clean, minimal design with subtle borders |
+| **Neon** | Vibrant colors with per-key overrides for special keys |
+| **Glass** | Frosted glass effect with gradient backgrounds |
+| **DarkPro** | Professional dark theme with high contrast |
+| **Light** | Clean light theme for bright environments |
 
 <br/>
 
